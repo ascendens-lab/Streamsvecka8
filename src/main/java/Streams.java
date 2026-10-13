@@ -7,7 +7,7 @@ public class Streams {
 
     public void  main(){
 
-    getCountries().stream().sorted(Comparator.comparing(Country::countryName)).forEach(System.out::println);
+    getCountries().stream().sorted(Comparator.comparing(Country::population).reversed()).forEach(System.out::println);
 
 
 
