@@ -1,18 +1,32 @@
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
+
 
 public class Streams {
 
     public void  main(){
 
-    getCountries().stream().sorted(Comparator.comparing(Country::population).reversed()).forEach(System.out::println);
+   Optional<Country>  störstaLandet = getCountries().stream().max(Comparator.comparing(Country::population));
+
+
+
+        String text = störstaLandet // Optional som innehåller landet med störst befolkning, framtaget ovan.
+                .map(land -> String.format( // Omvandlar landet till en String enligt instruktionen.
+                        "Befolkning: %.0f", // Text med en platshållare för ett decimaltal utan decimaler.
+                        land.population() * 1_000_000)) // Hämtar landets befolkning och räknar om från miljoner till invånare.
+                .orElse("Inget land hittades"); // Används om inget land finns i Optional.
+
+        IO.println(text);
+
+
 
 
 
     }
-    private static List<Country> getCountries() {
+    private  List<Country> getCountries() {
         return List.of(
                 new Country("Sverige", "Stockholm", 10.07, 450295),
                 new Country("Norge", "Oslo", 5.27, 323802),
