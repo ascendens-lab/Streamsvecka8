@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -6,8 +7,7 @@ public class Streams {
 
     public void  main(){
 
-    getCountries().stream().reduce((first, second) -> second)
-            .ifPresent(country -> System.out.println(country.countryName()));
+    getCountries().stream().sorted(Comparator.comparing(Country::countryName)).forEach(System.out::println);
 
 
 
