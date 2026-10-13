@@ -6,7 +6,8 @@ public class Streams {
 
     public void  main(){
 
-    getCountries().stream().skip(getCountries().size()-1).forEach(System.out::println);
+    getCountries().stream().reduce((first, second) -> second)
+            .ifPresent(country -> System.out.println(country.countryName()));
 
 
 
