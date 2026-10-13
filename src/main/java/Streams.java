@@ -1,11 +1,13 @@
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class Streams {
 
     public void  main(){
 
-     Country firstCountry =  getCountries().getFirst();
-     IO.println(firstCountry);
+    getCountries().stream().skip(getCountries().size()-1).forEach(System.out::println);
+
 
 
     }
