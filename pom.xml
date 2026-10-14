@@ -13,5 +13,32 @@
         <maven.compiler.target>27</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <dependencies>
+        <dependency>
+        <groupId>org.jspecify</groupId>
+        <artifactId>jspecify</artifactId>
+        <version>1.0.1</version>
+    </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+            <groupId>am.ik.maven</groupId>
+            <artifactId>nullability-maven-plugin</artifactId>
+            <version>0.5.2</version>
+            <extensions>true</extensions>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>configure</goal>
+                        <goal>generate-package-info</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+        </plugins>
+
+    </build>
+
 
 </project>
